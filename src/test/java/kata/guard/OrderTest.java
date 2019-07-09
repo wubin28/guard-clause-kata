@@ -17,4 +17,13 @@ public class OrderTest {
         Order order = new Order();
         order.submit(takeout);
     }
+
+    @Test
+    public void submit_订单提交前的合法性检查_地址为空字符串() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Address");
+        Takeout takeout = new Takeout("");
+        Order order = new Order();
+        order.submit(takeout);
+    }
 }
